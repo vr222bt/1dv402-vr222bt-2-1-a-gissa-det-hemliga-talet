@@ -16,7 +16,9 @@ namespace _1DV402.S2.L1A
 
         public void Initialize()
         {
-
+            _count = 0;
+            Random random = new Random();
+            _number = random.Next(1, 101);
         }
 
         public bool MakeGuess(int number)
