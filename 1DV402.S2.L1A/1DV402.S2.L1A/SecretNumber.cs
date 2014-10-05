@@ -31,19 +31,19 @@ namespace _1DV402.S2.L1A
             //Undersöker om gissningen är rätt
             if (_number == number)
             {
-                Console.WriteLine("");
+                Console.WriteLine("RÄTT GISSAT! Du klarade det på {0} försök", _count);
                 return true;
             }
             //Undersöker om det hemliga talet är högre än gissningen
             else if (_number > number)
             {
-                Console.WriteLine("");
+                Console.WriteLine("{0} är för lågt. Du har {1} gissningar kvar", number, (MaxNumberOfGuesses - _count));
                 return false;
             }
             //Om det hemliga talet är lägre än gissningen
             else
             {
-                Console.WriteLine("");
+                Console.WriteLine("{0} är för högt. Du har {1} gissningar kvar", number, (MaxNumberOfGuesses - _count));
                 return false;
             }
             
