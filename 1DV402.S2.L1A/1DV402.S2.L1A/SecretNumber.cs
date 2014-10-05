@@ -11,8 +11,12 @@ namespace _1DV402.S2.L1A
         //Deklarerar fält
         private int _count;
         private int _number;
-        public const int MaxNumberOfGuesses = 7;  
+        public const int MaxNumberOfGuesses = 7;
 
+        public SecretNumber()
+        {
+            Initialize();
+        }
 
         public void Initialize()
         {
@@ -70,9 +74,6 @@ namespace _1DV402.S2.L1A
         }
            
         
-        public SecretNumber()
-        {
-            Initialize();
-        }
+    
     }
 }
