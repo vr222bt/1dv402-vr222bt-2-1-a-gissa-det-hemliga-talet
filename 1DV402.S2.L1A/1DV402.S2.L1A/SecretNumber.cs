@@ -27,7 +27,16 @@ namespace _1DV402.S2.L1A
         {
             //Håller ordning på antalet gissningar som gjorts
             _count++;
-
+            //Undersöker så det inmatade värdet inte är utanför räckviden för det hemliga talet
+            if (number > 100 || number < 1)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            //Undersöker så det inte sker för många gissningar
+            if (_count > MaxNumberOfGuesses)
+            {
+                throw new ApplicationException();
+            }
             //Undersöker om gissningen är rätt
             if (_number == number)
             {
@@ -46,10 +55,7 @@ namespace _1DV402.S2.L1A
                 Console.WriteLine("{0} är för högt. Du har {1} gissningar kvar", number, (MaxNumberOfGuesses - _count));
                 return false;
             }
-            if (number > 100 || number < 1)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
+
             
         }
 
