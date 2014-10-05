@@ -18,6 +18,7 @@ namespace _1DV402.S2.L1A
         {
             //Ger _count ett startvärde
             _count = 0;
+
             //Tar fram det hemliga talet
             Random random = new Random();
             _number = random.Next(1, 101);
@@ -25,40 +26,50 @@ namespace _1DV402.S2.L1A
 
         public bool MakeGuess(int number)
         {
-            //Håller ordning på antalet gissningar som gjorts
-            _count++;
+
             //Undersöker så det inmatade värdet inte är utanför räckviden för det hemliga talet
             if (number > 100 || number < 1)
             {
                 throw new ArgumentOutOfRangeException();
             }
+
             //Undersöker så det inte sker för många gissningar
-            if (_count > MaxNumberOfGuesses)
+            if (_count >= MaxNumberOfGuesses)
             {
                 throw new ApplicationException();
             }
+            
+            //Håller ordning på antalet gissningar som gjorts
+            _count++;
+
             //Undersöker om gissningen är rätt
             if (_number == number)
             {
                 Console.WriteLine("RÄTT GISSAT! Du klarade det på {0} försök", _count);
                 return true;
             }
+
             //Undersöker om det hemliga talet är högre än gissningen
-            else if (_number > number)
+            if (_number > number)
             {
                 Console.WriteLine("{0} är för lågt. Du har {1} gissningar kvar", number, (MaxNumberOfGuesses - _count));
-                return false;
+                
             }
+
             //Om det hemliga talet är lägre än gissningen
             else
             {
                 Console.WriteLine("{0} är för högt. Du har {1} gissningar kvar", number, (MaxNumberOfGuesses - _count));
-                return false;
+   
             }
-
-            
+            if (_count == MaxNumberOfGuesses)
+            {
+                Console.WriteLine("Det hemliga talet är {0}", _number);
+            }
+            return false;
         }
-
+           
+        
         public SecretNumber()
         {
             Initialize();
