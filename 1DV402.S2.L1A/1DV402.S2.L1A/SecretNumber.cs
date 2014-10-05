@@ -33,7 +33,7 @@ namespace _1DV402.S2.L1A
 
             //Undersöker så det inmatade värdet inte är utanför räckviden för det hemliga talet
             if (number > 100 || number < 1)
-            {
+            {              
                 throw new ArgumentOutOfRangeException();
             }
 
