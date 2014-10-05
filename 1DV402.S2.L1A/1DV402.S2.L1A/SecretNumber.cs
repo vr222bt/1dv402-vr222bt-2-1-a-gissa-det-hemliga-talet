@@ -12,7 +12,8 @@ namespace _1DV402.S2.L1A
         private int _count;
         private int _number;
         public const int MaxNumberOfGuesses = 7;
-
+        public const int MaxValue = 100;
+        public const int MinValue = 1;
         public SecretNumber()
         {
             Initialize();
@@ -25,14 +26,14 @@ namespace _1DV402.S2.L1A
 
             //Tar fram det hemliga talet
             Random random = new Random();
-            _number = random.Next(1, 101);
+            _number = random.Next(MinValue, MaxValue + 1);
         }
 
         public bool MakeGuess(int number)
         {
 
             //Undersöker så det inmatade värdet inte är utanför räckviden för det hemliga talet
-            if (number > 100 || number < 1)
+            if (number > MaxValue || number < MinValue)
             {              
                 throw new ArgumentOutOfRangeException();
             }
