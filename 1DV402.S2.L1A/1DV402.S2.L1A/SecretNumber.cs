@@ -31,6 +31,11 @@ namespace _1DV402.S2.L1A
 
         public bool MakeGuess(int number)
         {
+            //Undersöker så det inte sker för många gissningar
+            if (_count >= MaxNumberOfGuesses)
+            {
+                throw new ApplicationException();
+            }
 
             //Undersöker så det inmatade värdet inte är utanför räckviden för det hemliga talet
             if (number > MaxValue || number < MinValue)
@@ -38,12 +43,7 @@ namespace _1DV402.S2.L1A
                 throw new ArgumentOutOfRangeException();
             }
 
-            //Undersöker så det inte sker för många gissningar
-            if (_count >= MaxNumberOfGuesses)
-            {
-                throw new ApplicationException();
-            }
-            
+                    
             //Håller ordning på antalet gissningar som gjorts
             _count++;
 
